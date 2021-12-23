@@ -1,0 +1,30 @@
+.repository {
+  margin: 40px;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    list-style: none;
+  }
+}
+
+.repository-item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: #444;
+    margin-top: 8px;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 16px;
+    text-decoration: none;
+    color: #8257e6;
+  }
+}
