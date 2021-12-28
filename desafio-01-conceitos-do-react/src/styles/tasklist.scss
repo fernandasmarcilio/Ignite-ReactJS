@@ -80,10 +80,7 @@ section.task-list {
           gap: 14px;
           outline: 0;
 
-          
-          &:focus-visible {
-            outline: -webkit-focus-ring-color auto 1px;
-          }
+        
 
           p {
             font-size: 1rem;

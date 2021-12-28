@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, KeyboardEvent } from 'react'
 
 import '../styles/tasklist.scss'
 
@@ -28,6 +28,7 @@ export function TaskList() {
         isComplete: false
       }
       setTasks([...tasks, newTask]);
+      setNewTaskTitle('');
     }
   }
 
@@ -41,6 +42,14 @@ export function TaskList() {
     // Remova uma task da listagem pelo ID
     const newTasks = tasks.filter( task => task.id !== id);
     setTasks(newTasks);
+  }
+
+  function handleKeyDownTaskCompletion(event: KeyboardEvent<HTMLSpanElement>, id: number) {
+    const { key } = event;
+    if(key !== 'Enter') {
+      return;
+    }
+    handleToggleTaskCompletion(id);
   }
 
   return (
@@ -75,6 +84,7 @@ export function TaskList() {
                 data-testid="task" 
                 role="checkbox" 
                 aria-checked={task.isComplete}
+                onKeyDown={(e) => handleKeyDownTaskCompletion(e, task.id)}
               >
                 <label className="checkbox-container" >
                   <input 
